@@ -1,6 +1,5 @@
 using Grpc.Core;
 using System.Diagnostics;
-using Monitor;
 
 namespace Monitor.Services;
 
@@ -17,10 +16,10 @@ public class GreeterService : Greeter.GreeterBase
         string pid = string.Empty;
         try
         {
-            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-            path = System.IO.Path.Combine(path, "..", "cli", "build", "./cli");
+            string path = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+            path = Path.Combine(path, "..", "cli", "build", "./cli");
             Process process = new Process();
-            process.StartInfo.FileName = "process.exe";
+            process.StartInfo.FileName = path;
             process.StartInfo.Arguments = "-n";
             process.Start();
             pid = process.Id.ToString();
