@@ -9,3 +9,9 @@ monitor
 ```
 cd monitor && dotnet run
 ```
+
+client
+
+```
+cd client && dotnet run
+```
